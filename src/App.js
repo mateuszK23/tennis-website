@@ -1,5 +1,5 @@
-import matches2025CSV from '../data/matches-2025.csv?raw';
-import matches2026CSV from '../data/matches-2026.csv?raw';
+import matches2025CSV from './data/matches-2025.csv?raw';
+import matches2026CSV from './data/matches-2026.csv?raw';
 
 export default function App() {
 
