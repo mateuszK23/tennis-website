@@ -147,3 +147,13 @@ transition: background 0.2s;
 .stats-table tr.top-player {
 background-color: #d0f0c0; /* highlight top player */
 }
+
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+}
+.footer a {
+  color: inherit;
+}
