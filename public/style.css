@@ -153,7 +153,9 @@ background-color: #d0f0c0; /* highlight top player */
   text-align: center;
   font-size: 0.8rem;
   color: #666;
+  padding: 20px 0;
 }
+
 .footer a {
   color: inherit;
 }

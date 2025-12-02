@@ -173,6 +173,17 @@ export default function App() {
     });
   }
 
+  const footer = document.createElement("footer");
+  footer.className = "footer";
+  footer.innerHTML = `
+  <p>Created by <strong>Mateusz Koscielniak</strong></p>
+  <p>
+    Icon made by <a href="https://www.flaticon.com/authors/freepik" target="_blank">Freepik</a> from
+    <a href="https://www.flaticon.com" target="_blank">www.flaticon.com</a>
+  </p>
+`;
+  container.appendChild(footer);
+
   const seasonData = {
     2025: parseCSV(matches2025CSV)[2025] || [],
     2026: parseCSV(matches2026CSV)[2026] || []
