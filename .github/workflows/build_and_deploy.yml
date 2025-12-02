@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
 push:
 branches:
-- main
+- develop
 schedule:
 - cron: '0 */3 * * *'
 workflow_dispatch:
@@ -30,7 +30,7 @@ steps:
     run: |
       echo "Fetching CSV..."
       mkdir -p data
-      curl -s "$CSV_URL" -o data/matches.csv
+      curl -s "$CSV_URL" -o data/matches-2025.csv
 
   - name: Build project
     run: npm run build
