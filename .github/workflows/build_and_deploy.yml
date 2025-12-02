@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: List files
-        run: ls -R src/data
+        run: ls -R
 
       - name: Fetch CSV
         env:
@@ -35,7 +35,7 @@ jobs:
           curl -s "$CSV_URL" -o src/data/matches-2025.csv
 
       - name: List files
-        run: ls -R src/data
+        run: ls -R
 
       - name: Build project
         run: npm run build
