@@ -15,7 +15,7 @@ export default function App() {
     };
 
     container.innerHTML = `
-        <h1>Super Pro Cardiff Open</h1>
+        <h1>Cardiff Open</h1>
         <div class="tabs" id="tabs"></div>
         <div id="stats" class="stats"></div>
         <div id="matches" class="matches"></div>

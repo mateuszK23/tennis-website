@@ -17,8 +17,7 @@ export function renderStatsDiv(matches, container) {
       <thead>
         <tr>
           <th>Player</th>
-          <th>Matches Played</th>
-          <th>Matches Won</th>
+          <th>Won/Lost</th>
           <th>Win Ratio</th>
         </tr>
       </thead>
@@ -28,8 +27,7 @@ export function renderStatsDiv(matches, container) {
   for (const player in stats) {
     html += `<tr>
       <td>${createFlag('pl')} <strong>${player}</strong></td>
-      <td>${stats[player].played}</td>
-      <td>${stats[player].won}</td>
+      <td>${stats[player].won}/${stats[player].played}</td>
       <td>${stats[player].ratio}%</td>
     </tr>`;
   }
