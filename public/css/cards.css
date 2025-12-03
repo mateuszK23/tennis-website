@@ -45,11 +45,34 @@
 
 .weather,
 .wind {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     background: #f0f8ff;
     padding: 4px 8px;
     border-radius: 8px;
     font-size: 0.85rem;
+    white-space: nowrap; /* prevents the content from wrapping */
 }
+
+/* Optional: adjust font-size on very small screens */
+@media (max-width: 400px) {
+    .weather,
+    .wind {
+        font-size: 0.75rem;
+        gap: 2px;
+        padding: 3px 6px;
+    }
+}
+
+.match-card-footer {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding-top: 8px;
+    flex-wrap: wrap; /* allow wrapping on smaller screens */
+}
+
 
 .match-row {
     display: flex;

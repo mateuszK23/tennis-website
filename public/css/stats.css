@@ -1,7 +1,8 @@
 /* Stats Section */
 .stats {
     background: linear-gradient(135deg, #e3f2fd, #f0f9ff);
-    padding: 20px; /* slightly smaller padding on mobile */
+    padding: 20px;
+    /* slightly smaller padding on mobile */
     border-radius: 15px;
     margin-bottom: 25px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
@@ -24,13 +25,15 @@
 
 /* Tables - Modern Professional Style */
 .stats-table-wrapper {
-    overflow-x: auto; /* horizontal scroll on small screens */
+    overflow-x: auto;
+    /* horizontal scroll on small screens */
     -webkit-overflow-scrolling: touch;
 }
 
 .stats-table {
     width: 100%;
-    min-width: 600px; /* ensures table content doesn’t shrink too much */
+    min-width: 600px;
+    /* ensures table content doesn’t shrink too much */
     border-collapse: separate;
     border-spacing: 0;
     margin-top: 12px;
@@ -49,7 +52,8 @@
     text-align: left;
     position: sticky;
     top: 0;
-    white-space: nowrap; /* prevents text from wrapping */
+    white-space: nowrap;
+    /* prevents text from wrapping */
 }
 
 /* Table Rows */
@@ -65,7 +69,8 @@
 /* Hover Effect */
 .stats-table tr:hover {
     background-color: #d0e4ff;
-    transform: translateX(0); /* optional, subtle on mobile */
+    transform: translateX(0);
+    /* optional, subtle on mobile */
 }
 
 /* Rounded Table Corners */
@@ -81,24 +86,28 @@
     border-radius: 0 0 12px 12px;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .stats {
-        padding: 15px;
+    .stats:has(.stats-table) {
+        padding: 0;
     }
 
-    .stats p {
-        font-size: 0.9rem;
+    .stats-table {
+        width: 100% !important;
+        /* force table to match container */
+        min-width: 0 !important;
+        /* allow shrinking */
+        table-layout: fixed;
+        /* evenly distribute columns */
     }
 
     .stats-table th,
     .stats-table td {
-        padding: 8px 6px;
-        font-size: 0.85rem;
+        word-break: break-word;
+        /* break long text */
     }
 
-    .stats-table {
-        font-size: 0.85rem;
-        min-width: 100%; /* let table fit in viewport */
+    .stats-table td:not(:first-child),
+    .stats-table th {
+        text-align: center;
     }
 }

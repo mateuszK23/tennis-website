@@ -57,6 +57,7 @@ const weatherHTML = (weatherForDay && weatherForDay.code !== undefined && weathe
     <div class="match-card">
       <div class="match-card-header">
         <div class="date">${match.date}</div>
+        <div class="date">Cardiff Rhiwbina LTC</div>
       </div>
 
       <div class="match-row">
@@ -74,7 +75,6 @@ const weatherHTML = (weatherForDay && weatherForDay.code !== undefined && weathe
       </div>
 
       <div class="match-card-footer">
-        <div class="date">Cardiff Rhiwbina LTC</div>
         ${weatherHTML}
         ${windHTML}
       </div>

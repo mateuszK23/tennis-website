@@ -8,6 +8,12 @@ body {
     line-height: 1.6;
 }
 
+html,
+body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
 #app {
     max-width: 900px;
     margin: auto;
