@@ -4,13 +4,13 @@
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .match-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .match-card-header,
@@ -34,14 +34,17 @@
     border-bottom: 1px solid #f0f0f0;
 }
 
-.date, .weather, .wind {
+.date,
+.weather,
+.wind {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     font-weight: 500;
 }
 
-.weather, .wind {
+.weather,
+.wind {
     background: #f0f8ff;
     padding: 4px 8px;
     border-radius: 8px;
