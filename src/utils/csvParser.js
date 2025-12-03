@@ -22,7 +22,7 @@ export function parseCSV(rawText) {
     const day = String(timestamp.getDate()).padStart(2, '0');
     const month = String(timestamp.getMonth() + 1).padStart(2, '0');
     const year = timestamp.getFullYear();
-    const formattedDate = `${day}/${month}/${year}`;
+    const formattedDate = `${year}-${month}-${day}`;
     const scoreStr = cols[1].replace(/"/g, '');
     const winner = cols[2].replace(/"/g, '').trim();
     const loser = winner === "Tomek" ? "Mateusz" : "Tomek";
@@ -35,7 +35,7 @@ export function parseCSV(rawText) {
       player2: loser,
       country2: 'pl',
       score2: parseScores(scoreStr, 'loser'),
-      round: formattedDate
+      date: formattedDate
     });
   });
 

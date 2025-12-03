@@ -43,11 +43,36 @@ margin-bottom: 15px;
 box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.round {
-font-size: 0.85em;
-color: #666;
-margin-bottom: 5px;
-text-transform: uppercase;
+.match-card-header, .match-card-footer {
+  display: flex;              /* horizontal layout */
+  align-items: center;        /* vertical alignment */
+  font-size: 0.85em;
+  color: #666;
+  margin-bottom: 5px;
+  line-height: 1;             /* normalize line-height */
+}
+
+.match-card-footer {
+  padding-top: 5px;
+  gap: 20px;
+}
+
+.match-card-header {
+  padding-bottom: 5px;
+}
+
+.date {
+  display: flex;
+  align-items: center;        /* center text vertically with badge */
+}
+
+.weather {
+  display: inline-flex;
+  align-items: center;        /* center icon + text */
+  gap: 4px;
+  padding: 2px 6px;           /* built-in padding */
+  border-radius: 6px;
+  line-height: 1;             /* vertical alignment */
 }
 
 .match-row {

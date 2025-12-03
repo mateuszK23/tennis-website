@@ -4,10 +4,11 @@ import Footer from './components/Footer.js';
 import { parseCSV } from './utils/csvParser.js';
 import { renderStatsDiv } from './components/StatsTable.js';
 import { renderMatchCard } from './components/MatchCard.js';
+import { fetchSeasonWeather } from './utils/weatherFetcher.js';
 
 export default function App() {
     const container = document.createElement('div');
-
+    const weatherCache = {};
     const seasonData = {
         2025: parseCSV(matches2025CSV) || [],
         2026: parseCSV(matches2026CSV) || []
@@ -24,12 +25,20 @@ export default function App() {
     const matchesDiv = container.querySelector("#matches");
     const tabsContainer = container.querySelector("#tabs");
 
-    function renderMatches(season) {
+    async function renderMatches(season) {
         matchesDiv.innerHTML = "";
         const matches = seasonData[season] || [];
+
+        // load weather once per season
+        if (!weatherCache[season]) {
+            weatherCache[season] = await fetchSeasonWeather(season, matches);
+        }
+
         renderStatsDiv(matches, statsDiv);
+
         matches.forEach(match => {
-            matchesDiv.innerHTML += renderMatchCard(match);
+            const weather = weatherCache[season][match.date];
+            matchesDiv.innerHTML += renderMatchCard(match, weather);
         });
     }
 
