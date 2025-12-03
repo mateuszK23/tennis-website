@@ -1,6 +1,4 @@
-export function createFlag(country) {
-  return `<img src="https://flagcdn.com/24x18/${country}.png" alt="${country}" class="flag">`;
-}
+import { createFlag } from '../utils/createFlag.js';
 
 function weatherIcon(code) {
   const map = {

@@ -1,4 +1,5 @@
 import { calculateStats } from "../utils/stats.js";
+import { createFlag } from '../utils/createFlag.js';
 
 export function renderStatsDiv(matches, container) {
   matches = Array.isArray(matches) ? matches : [];
@@ -6,21 +7,17 @@ export function renderStatsDiv(matches, container) {
 
   if (totalMatches === 0) {
     container.innerHTML = `<p class="no-matches">No matches have been played this season.</p>`;
-    return;
+    return false;
   }
 
   const stats = calculateStats(matches);
 
   let html = `
-    <table class="matches-played-table">
-      <thead>
-        <tr><th>Matches Played: ${totalMatches}<th></tr>
-      </thead>
-    </table>
     <table class="stats-table">
       <thead>
         <tr>
           <th>Player</th>
+          <th>Matches Played</th>
           <th>Matches Won</th>
           <th>Win Ratio</th>
         </tr>
@@ -30,7 +27,8 @@ export function renderStatsDiv(matches, container) {
 
   for (const player in stats) {
     html += `<tr>
-      <td>${player}</td>
+      <td>${createFlag('pl')} <strong>${player}</strong></td>
+      <td>${stats[player].played}</td>
       <td>${stats[player].won}</td>
       <td>${stats[player].ratio}%</td>
     </tr>`;
@@ -38,4 +36,6 @@ export function renderStatsDiv(matches, container) {
 
   html += `</tbody></table>`;
   container.innerHTML = html;
+
+  return true;
 }

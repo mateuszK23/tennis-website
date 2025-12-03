@@ -15,7 +15,7 @@ export default function App() {
     };
 
     container.innerHTML = `
-        <h1>Tennis Match Results</h1>
+        <h1>Super Pro Cardiff Open</h1>
         <div class="tabs" id="tabs"></div>
         <div id="stats" class="stats"></div>
         <div id="matches" class="matches"></div>
@@ -28,14 +28,14 @@ export default function App() {
     async function renderMatches(season) {
         matchesDiv.innerHTML = "";
         const matches = seasonData[season] || [];
+        
+        const matchesPresent = renderStatsDiv(matches, statsDiv);
 
         // load weather once per season
-        if (!weatherCache[season]) {
+        if (!weatherCache[season] && matchesPresent) {
             weatherCache[season] = await fetchSeasonWeather(season, matches);
         }
-
-        renderStatsDiv(matches, statsDiv);
-
+        
         matches.forEach(match => {
             const weather = weatherCache[season][match.date];
             matchesDiv.innerHTML += renderMatchCard(match, weather);
