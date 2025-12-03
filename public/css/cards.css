@@ -34,14 +34,14 @@
     border-bottom: 1px solid #f0f0f0;
 }
 
-.date, .weather {
+.date, .weather, .wind {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     font-weight: 500;
 }
 
-.weather {
+.weather, .wind {
     background: #f0f8ff;
     padding: 4px 8px;
     border-radius: 8px;
