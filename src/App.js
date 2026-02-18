@@ -43,7 +43,7 @@ export default function App() {
     }
 
     function initTabs() {
-        const seasons = Object.keys(seasonData);
+        const seasons = Object.keys(seasonData).sort((a, b) => Number(b) - Number(a));
         seasons.forEach((season, index) => {
             const btn = document.createElement('button');
             btn.className = 'tab-btn' + (index === 0 ? ' active' : '');
