@@ -10,8 +10,8 @@ export default function App() {
     const container = document.createElement('div');
     const weatherCache = {};
     const seasonData = {
-        2025: parseCSV(matches2025CSV) || [],
-        2026: parseCSV(matches2026CSV) || []
+        2026: parseCSV(matches2026CSV) || [],
+        2025: parseCSV(matches2025CSV) || []
     };
 
     container.innerHTML = `
