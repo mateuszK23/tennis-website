@@ -10,8 +10,8 @@ export default function App() {
     const container = document.createElement('div');
     const weatherCache = {};
     const seasonData = {
-        2026: parseCSV(matches2026CSV) || [],
-        2025: parseCSV(matches2025CSV) || []
+        2025: parseCSV(matches2025CSV) || [],
+        2026: parseCSV(matches2026CSV) || []
     };
 
     container.innerHTML = `
@@ -27,7 +27,12 @@ export default function App() {
 
     async function renderMatches(season) {
         matchesDiv.innerHTML = "";
-        const matches = seasonData[season] || [];
+        const matches = (seasonData[season] || []).slice();
+
+        // ensure newest matches are shown first (compare ISO date strings)
+        matches.sort((a, b) => b.date.localeCompare(a.date));
+        
+        console.log(matches);
         
         const matchesPresent = renderStatsDiv(matches, statsDiv);
 
@@ -44,9 +49,14 @@ export default function App() {
 
     function initTabs() {
         const seasons = Object.keys(seasonData).sort((a, b) => Number(b) - Number(a));
+
+        // pick first season (newest-first) that actually has matches as the default active
+        let defaultIndex = seasons.findIndex(season => (seasonData[season] || []).length > 0);
+        if (defaultIndex === -1) defaultIndex = 0;
+
         seasons.forEach((season, index) => {
             const btn = document.createElement('button');
-            btn.className = 'tab-btn' + (index === 0 ? ' active' : '');
+            btn.className = 'tab-btn' + (index === defaultIndex ? ' active' : '');
             btn.dataset.season = season;
             btn.textContent = season;
 
