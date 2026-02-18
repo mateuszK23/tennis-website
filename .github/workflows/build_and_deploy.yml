@@ -29,7 +29,7 @@ jobs:
         run: |
           echo "Fetching CSV..."
           mkdir -p data
-          curl -L "$CSV_URL" -o src/data/matches-2025.csv
+          curl -L "$CSV_URL" -o src/data/matches-2026.csv
 
       - name: Build project
         run: npm run build
